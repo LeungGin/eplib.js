@@ -12,7 +12,7 @@ function parseExpression(expression, data) {
     if (data != undefined) {
         expression = replaceParam(expression, data);
     }
-    return new Function("return " + expression) ();
+    return new Function("return " + expression)();
 }
 
 /**
@@ -27,7 +27,7 @@ function replaceParam(expression, data) {
     if (params != undefined && params instanceof Array) {
         for (const p of params) {
             let replaceValue = data[p.substring(1, p.length - 1)];
-            expression = expression.replace(new RegExp(p,'g'), formatStandardGrammar(replaceValue));
+            expression = expression.replace(new RegExp(p, 'g'), formatStandardGrammar(replaceValue));
         }
     }
     return expression;
